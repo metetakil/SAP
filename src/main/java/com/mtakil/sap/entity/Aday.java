@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 public class Aday {
@@ -34,9 +36,11 @@ public class Aday {
 	private Date dogumTarihi;
 	
 	@OneToMany(mappedBy = "aday")
+	@JsonIgnoreProperties("aday")
 	private List<SinavSonucu> sinavSonuclari;
 	
 	@OneToMany(mappedBy = "aday")
+	@JsonIgnoreProperties("aday")
 	private List<AdayDokuman> adayDokumanlari;
 
 	public Long getId() {
